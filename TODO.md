@@ -1,0 +1,1 @@
+- [x] Fix TypeError in StudentDashboard.jsx by adding null check in isEnrolled function

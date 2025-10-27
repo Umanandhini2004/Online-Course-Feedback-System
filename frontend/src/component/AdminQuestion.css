@@ -1,0 +1,232 @@
+/* AdminQuestions.css */
+
+.admin-questions-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-questions-container h2 {
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 28px;
+  text-align: center;
+}
+
+/* Course Type Selector */
+.course-type-selector {
+  margin-bottom: 25px;
+}
+
+.course-type-selector label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #34495e;
+  font-size: 14px;
+}
+
+.course-type-selector select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.course-type-selector select:hover {
+  border-color: #3498db;
+}
+
+.course-type-selector select:focus {
+  outline: none;
+  border-color: #2980b9;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Question Form */
+.question-form {
+  background-color: #f8f9fa;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.question-form input[type="text"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.question-form input[type="text"]:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.question-form button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.question-form button[type="submit"] {
+  background-color: #3498db;
+  color: white;
+  flex: 1;
+}
+
+.question-form button[type="submit"]:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.question-form button[type="button"] {
+  background-color: #95a5a6;
+  color: white;
+  flex: 0.4;
+}
+
+.question-form button[type="button"]:hover {
+  background-color: #7f8c8d;
+  transform: translateY(-2px);
+}
+
+/* Questions List */
+.questions-section h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 22px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.questions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.question-item {
+  background-color: white;
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.question-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateX(5px);
+}
+
+.question-text {
+  flex: 1;
+  color: #2c3e50;
+  font-size: 16px;
+  line-height: 1.5;
+  padding-right: 15px;
+}
+
+.question-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.question-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #891d9a;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #6fd7c4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3);
+}
+
+.delete-btn {
+  background-color: #a3de64;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #dbf040;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #95a5a6;
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-questions-container {
+    padding: 20px 15px;
+  }
+
+  .question-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .question-text {
+    margin-bottom: 12px;
+    padding-right: 0;
+  }
+
+  .question-actions {
+    width: 100%;
+  }
+
+  .question-actions button {
+    flex: 1;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .question-form button[type="button"] {
+    flex: 1;
+  }
+}

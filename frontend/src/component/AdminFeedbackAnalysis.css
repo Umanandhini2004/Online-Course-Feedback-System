@@ -1,0 +1,123 @@
+/* AdminFeedbackAnalysis.css */
+
+.feedback-analysis-container {
+  padding: 1.5rem;
+  background-color: #0c316c;
+  min-height: 100vh;
+}
+
+.feedback-header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feedback-info {
+  text-align: center;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.feedback-info:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+.feedback-total {
+  text-align: center;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.feedback-info b,
+.feedback-total b {
+  font-weight: 600;
+}
+
+.charts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.chart-card {
+  background-color: white;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  width: 80%;
+}
+
+.chart-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.75rem;
+  color: #1f2937;
+}
+
+.chart-wrapper {
+  height: 230px;
+}
+
+.download-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.download-button {
+  background-color: #16a34a;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 1rem;
+}
+
+.download-button:hover {
+  background-color: #15803d;
+}
+
+.loading-container,
+.error-container,
+.no-feedback-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.125rem;
+}
+
+.loading-container {
+  color: #4b5563;
+}
+
+.error-container {
+  color: #dc2626;
+}
+
+.no-feedback-container {
+  color: #4b5563;
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .chart-card {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .chart-card {
+    width: 60%;
+  }
+}
