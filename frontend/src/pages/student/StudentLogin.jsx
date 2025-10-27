@@ -91,6 +91,9 @@ const StudentLogin = () => {
             )}
           </button>
         </form>
+         <p style={{ marginTop: "20px" }}>
+        Don't have an account? <Link to="/student/register">Register here</Link>
+      </p>
       </div>
     </div>
   );
