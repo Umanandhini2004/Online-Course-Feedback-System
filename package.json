@@ -1,0 +1,13 @@
+{
+  "name": "OFS",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npm run build --prefix frontend",
+    "start": "node backend/server.js",
+    "frontend": "npm start --prefix frontend",
+    "backend": "nodemon backend/server.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
