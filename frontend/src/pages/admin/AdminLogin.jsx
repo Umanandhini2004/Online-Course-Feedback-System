@@ -164,12 +164,7 @@ const AdminLogin = () => {
             </svg>
             This is a restricted area. Unauthorized access is prohibited.
           </p>
-          <p style={{ marginTop: "20px" }}>
-        Don't have an account? <Link to="/admin/register">Register here</Link>
-      </p>
         </div>
-
-      
         
       </div>
     </div>
