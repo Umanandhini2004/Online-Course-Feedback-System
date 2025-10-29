@@ -42,7 +42,7 @@ const StudentRegister = () => {
     setIsSubmitting(true);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/student/register", form);
+      const res = await axios.post("https://online-course-feedback-system-yf47.vercel.app/api/student/register", form);
       Swal.fire({
         icon: "success",
         title: "Registration Successful!",
