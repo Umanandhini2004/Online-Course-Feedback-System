@@ -11,7 +11,8 @@ const AdminQuestions = () => {
 
   const fetchQuestions = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/questions/${courseType}`);
+      const res = await axios.get(`https://online-course-feedback-system-yf47.vercel.app/api/questions/${courseType}`);
+
       setQuestions(res.data);
     } catch (err) {
       console.error(err);
@@ -26,10 +27,12 @@ const AdminQuestions = () => {
     e.preventDefault();
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/questions/${editId}`, { question });
+         await axios.put(`https://online-course-feedback-system-yf47.vercel.app/api/questions/${editId}`, { question });
+
         Swal.fire("Updated!", "Question updated", "success");
       } else {
-        await axios.post("http://localhost:5000/api/questions", { courseType, question });
+        await axios.post("https://online-course-feedback-system-yf47.vercel.app/api/questions", { courseType, question });
+
         Swal.fire("Added!", "Question added", "success");
       }
       setQuestion("");
@@ -47,7 +50,7 @@ const AdminQuestions = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/questions/${id}`);
+      await axios.delete(`https://online-course-feedback-system-yf47.vercel.app/api/questions/${id}`);
       Swal.fire("Deleted!", "Question removed", "success");
       fetchQuestions();
     } catch (err) {
