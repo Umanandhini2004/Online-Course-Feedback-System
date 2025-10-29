@@ -23,7 +23,7 @@ const FeedbackForm = () => {
     const fetchQuestions = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/questions/${courseType}`
+          `https://online-course-feedback-system-yf47.vercel.app/api/questions/${courseType}`
         );
         setQuestions(res.data);
       } catch (err) {
