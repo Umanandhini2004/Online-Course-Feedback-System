@@ -33,7 +33,8 @@ const StudentDashboard = () => {
 
   const fetchStudent = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/students/${studentId}`);
+      const res = await axios.get(`https://online-course-feedback-system-yf47.vercel.app/api/students/${studentId}`);
+
       setStudent(res.data);
     } catch (err) {
       console.error("fetchStudent error:", err);
@@ -46,7 +47,8 @@ const StudentDashboard = () => {
 
   const applyFilter = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/courses", {
+      const res = await axios.get("https://online-course-feedback-system-yf47.vercel.app/api/courses", {
+
         params: filters,
       });
       setCourses(res.data);
@@ -61,7 +63,8 @@ const StudentDashboard = () => {
 
   const handleEnroll = async (courseId) => {
     try {
-      await axios.post(`http://localhost:5000/api/students/${studentId}/enroll/${courseId}`);
+      await axios.post(`https://online-course-feedback-system-yf47.vercel.app/api/students/${studentId}/enroll/${courseId}`);
+
       Swal.fire("Enrolled!", "You have enrolled in this course", "success");
       await fetchStudent();
     } catch (err) {
