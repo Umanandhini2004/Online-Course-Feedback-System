@@ -25,7 +25,8 @@ const AdminFeedbackAnalysis = () => {
   useEffect(() => {
     const fetchFeedbackAnalysis = async () => {
       try {
-        let url = `http://localhost:5000/api/feedback/analysis/${courseId}`;
+        let url = `https://online-course-feedback-system-yf47.vercel.app/api/feedback/analysis/${courseId}`;
+
         if (facultyName) {
           url += `?faculty=${encodeURIComponent(facultyName)}`;
         }
