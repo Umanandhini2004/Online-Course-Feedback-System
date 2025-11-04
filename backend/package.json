@@ -16,7 +16,6 @@
     "multer": "^2.0.2",
     "nodemailer": "^7.0.9",
     "serverless-http": "^4.0.0"
-
   },
   "devDependencies": {
     "nodemon": "^3.0.0"
