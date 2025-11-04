@@ -19,7 +19,7 @@ const AdminLogin = () => {
     setIsLoading(true);
 
     try {
-      const res = await axios.post("https://online-course-feedback-system-yf47.vercel.app/api/admin/login", form);
+      const res = await axios.post("https://online-course-feedback-system-hr9d.vercel.app/api/admin/login", form);
 
       Swal.fire({
         icon: "success",
