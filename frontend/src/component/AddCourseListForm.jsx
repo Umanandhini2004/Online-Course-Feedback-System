@@ -36,7 +36,7 @@ const AddCourseListForm = () => {
     formData.append("csvFile", courseFile);
 
     try {
-      const response = await fetch("https://online-course-feedback-system-yf47.vercel.app/api/upload-coursebatch", {
+      const response = await fetch("https://online-course-feedback-system-hr9d.vercel.app/api/upload-coursebatch", {
 
         method: "POST",
         body: formData,
