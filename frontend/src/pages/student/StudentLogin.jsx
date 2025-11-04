@@ -17,7 +17,7 @@ const StudentLogin = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const res = await axios.post("https://online-course-feedback-system-yf47.vercel.app/api/student/login", form);
+      const res = await axios.post("https://online-course-feedback-system-hr9d.vercel.app/api/student/login", form);
       // ✅ Store MongoDB _id
       localStorage.setItem("studentId", res.data.student._id);
       localStorage.setItem("studentRollno", res.data.student.rollno);
