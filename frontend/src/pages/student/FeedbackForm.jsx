@@ -63,7 +63,7 @@ const FeedbackForm = () => {
 
     try {
       setSubmitting(true);
-      await axios.post("http://localhost:5000/api/feedback", {
+      await axios.post("https://online-course-feedback-system-hr9d.vercel.app/api/feedback", {
         studentId,
         courseId,
         courseType,
