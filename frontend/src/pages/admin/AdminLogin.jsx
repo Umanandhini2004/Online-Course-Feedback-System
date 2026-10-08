@@ -1,7 +1,6 @@
 // AdminLogin.jsx
 import React, { useState } from "react";
-// import { Link, useNavigate } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import "./AdminLogin.css";
@@ -19,8 +18,7 @@ const AdminLogin = () => {
     setIsLoading(true);
 
     try {
-      const res = await axios.post("https://online-course-feedback-system-hr9d.vercel.app/api/admin/login", form);
-
+      const res = await axios.post("http://localhost:5000/api/admin/login", form);
       Swal.fire({
         icon: "success",
         title: "Welcome Admin!",
@@ -147,7 +145,8 @@ const AdminLogin = () => {
             </span>
           </button>
         </form>
-         {/* Register Link */}
+
+        {/* Register Link */}
         <p className="admin-register-link">
           Don&apos;t have an admin account?{" "}
           <Link to="/admin/register">Register here</Link>
@@ -171,7 +170,9 @@ const AdminLogin = () => {
             </svg>
             This is a restricted area. Unauthorized access is prohibited.
           </p>
+        
         </div>
+      
         
       </div>
     </div>
