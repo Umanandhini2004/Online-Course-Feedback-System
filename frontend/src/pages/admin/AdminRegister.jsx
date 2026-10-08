@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 const AdminRegister = () => {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const navigate = useNavigate();
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -11,9 +13,10 @@ const AdminRegister = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://online-course-feedback-system-hr9d.vercel.app/api/admin/register", form);
+      const res = await axios.post("http://localhost:5000/api/admin/register", form);
       Swal.fire("Success", res.data.message, "success");
       setForm({ name: "", email: "", password: "" });
+      navigate("/admin/login");
     } catch (err) {
       Swal.fire("Error", err.response?.data?.message || "Registration failed", "error");
     }
@@ -28,6 +31,10 @@ const AdminRegister = () => {
         <input name="password" type="password" placeholder="Password" value={form.password} onChange={handleChange} required /><br /><br />
         <button type="submit">Register</button>
       </form>
+      <p className="login-link">
+        Already have an account?{" "}
+        <Link to="/admin/login">Login here</Link>
+      </p>
     </div>
   );
 };
