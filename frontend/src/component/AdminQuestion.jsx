@@ -1,3 +1,4 @@
+```jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -9,9 +10,27 @@ const AdminQuestions = () => {
   const [questions, setQuestions] = useState([]);
   const [editId, setEditId] = useState(null);
 
-  const fetchQuestions = async () => {
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      try {
+        const res = await axios.get(
+          `https://online-course-feedback-system-hr9d.vercel.app/api/questions/${courseType}`
+        );
+
+        setQuestions(res.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchQuestions();
+  }, [courseType]);
+
+  const refreshQuestions = async () => {
     try {
-      const res = await axios.get(`https://online-course-feedback-system-hr9d.vercel.app/api/questions/${courseType}`);
+      const res = await axios.get(
+        `https://online-course-feedback-system-hr9d.vercel.app/api/questions/${courseType}`
+      );
 
       setQuestions(res.data);
     } catch (err) {
@@ -19,27 +38,35 @@ const AdminQuestions = () => {
     }
   };
 
-  useEffect(() => {
-    fetchQuestions();
-  }, [courseType]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       if (editId) {
-         await axios.put(`https://online-course-feedback-system-hr9d.vercel.app/api/questions/${editId}`, { question });
+        await axios.put(
+          `https://online-course-feedback-system-hr9d.vercel.app/api/questions/${editId}`,
+          { question }
+        );
 
         Swal.fire("Updated!", "Question updated", "success");
       } else {
-        await axios.post("https://online-course-feedback-system-hr9d.vercel.app/api/questions", { courseType, question });
+        await axios.post(
+          "https://online-course-feedback-system-hr9d.vercel.app/api/questions",
+          { courseType, question }
+        );
 
         Swal.fire("Added!", "Question added", "success");
       }
+
       setQuestion("");
       setEditId(null);
-      fetchQuestions();
+      refreshQuestions();
     } catch (err) {
-      Swal.fire("Error", err.response?.data?.message || "Operation failed", "error");
+      Swal.fire(
+        "Error",
+        err.response?.data?.message || "Operation failed",
+        "error"
+      );
     }
   };
 
@@ -50,9 +77,12 @@ const AdminQuestions = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://online-course-feedback-system-hr9d.vercel.app/api/questions/${id}`);
+      await axios.delete(
+        `https://online-course-feedback-system-hr9d.vercel.app/api/questions/${id}`
+      );
+
       Swal.fire("Deleted!", "Question removed", "success");
-      fetchQuestions();
+      refreshQuestions();
     } catch (err) {
       Swal.fire("Error", "Delete failed", "error");
     }
@@ -64,7 +94,11 @@ const AdminQuestions = () => {
 
       <div className="course-type-selector">
         <label>Select Course Type</label>
-        <select value={courseType} onChange={(e) => setCourseType(e.target.value)}>
+
+        <select
+          value={courseType}
+          onChange={(e) => setCourseType(e.target.value)}
+        >
           <option value="theory">Theory</option>
           <option value="practical">Practical</option>
           <option value="integrated">Integrated</option>
@@ -79,8 +113,12 @@ const AdminQuestions = () => {
           onChange={(e) => setQuestion(e.target.value)}
           required
         />
+
         <div className="form-buttons">
-          <button type="submit">{editId ? "Update" : "Add"}</button>
+          <button type="submit">
+            {editId ? "Update" : "Add"}
+          </button>
+
           {editId && (
             <button
               type="button"
@@ -97,18 +135,31 @@ const AdminQuestions = () => {
 
       <div className="questions-section">
         <h3>Questions ({questions.length})</h3>
+
         {questions.length === 0 ? (
-          <div className="empty-state">No questions found for this course type.</div>
+          <div className="empty-state">
+            No questions found for this course type.
+          </div>
         ) : (
           <ul className="questions-list">
             {questions.map((q) => (
               <li key={q._id} className="question-item">
-                <span className="question-text">{q.question}</span>
+                <span className="question-text">
+                  {q.question}
+                </span>
+
                 <div className="question-actions">
-                  <button className="edit-btn" onClick={() => handleEdit(q)}>
+                  <button
+                    className="edit-btn"
+                    onClick={() => handleEdit(q)}
+                  >
                     Edit
                   </button>
-                  <button className="delete-btn" onClick={() => handleDelete(q._id)}>
+
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(q._id)}
+                  >
                     Delete
                   </button>
                 </div>
@@ -122,3 +173,4 @@ const AdminQuestions = () => {
 };
 
 export default AdminQuestions;
+```
