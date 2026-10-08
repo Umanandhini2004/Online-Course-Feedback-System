@@ -10,6 +10,7 @@ const AdminQuestions = () => {
   const [questions, setQuestions] = useState([]);
   const [editId, setEditId] = useState(null);
 
+  // Fetch questions when course type changes
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
@@ -26,6 +27,7 @@ const AdminQuestions = () => {
     fetchQuestions();
   }, [courseType]);
 
+  // Refresh questions after add, update or delete
   const refreshQuestions = async () => {
     try {
       const res = await axios.get(
@@ -52,7 +54,10 @@ const AdminQuestions = () => {
       } else {
         await axios.post(
           "https://online-course-feedback-system-hr9d.vercel.app/api/questions",
-          { courseType, question }
+          {
+            courseType,
+            question,
+          }
         );
 
         Swal.fire("Added!", "Question added", "success");
