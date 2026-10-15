@@ -14,7 +14,10 @@ const AdminRegister = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/admin/register", form);
+      const res = await axios.post(
+        "https://online-course-feedback-system-hwqb.vercel.app/api/admin/register",
+        form
+      );
       Swal.fire("Success", res.data.message, "success");
       setForm({ name: "", email: "", password: "" });
       navigate("/admin/login");

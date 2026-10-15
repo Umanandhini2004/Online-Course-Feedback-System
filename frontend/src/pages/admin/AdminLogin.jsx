@@ -18,7 +18,10 @@ const AdminLogin = () => {
     setIsLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/admin/login", form);
+      const res = await axios.post(
+        "https://online-course-feedback-system-hwqb.vercel.app/api/admin/login",
+        form
+      );
       Swal.fire({
         icon: "success",
         title: "Welcome Admin!",

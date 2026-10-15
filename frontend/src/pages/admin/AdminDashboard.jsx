@@ -8,9 +8,7 @@ import "./AdminDashboard.css";
 
 const API_BASE_URL =
   process.env.REACT_APP_API_URL ||
-  (window.location.hostname === "localhost"
-    ? "http://localhost:5000/api"
-    : "https://online-course-feedback-system-hr9d.vercel.app/api");
+  "https://online-course-feedback-system-hwqb.vercel.app/api";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
