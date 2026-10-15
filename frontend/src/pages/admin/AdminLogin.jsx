@@ -147,17 +147,11 @@ const AdminLogin = () => {
         </form>
 
         {/* Register Link */}
-<<<<<<< HEAD
         <p className="admin-register-link">
           Don&apos;t have an admin account?{" "}
           <Link to="/admin/register">Register here</Link>
         </p>
-=======
-        {/* <p className="admin-register-link">
-          Don&apos;t have an admin account?{" "}
-          <Link to="/admin/register">Register here</Link>
-        </p> */}
->>>>>>> 1ee73bc (Updated code)
+
 
         {/* Security Notice */}
         <div className="security-notice">

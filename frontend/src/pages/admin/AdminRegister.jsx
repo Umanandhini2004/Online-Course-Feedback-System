@@ -24,20 +24,6 @@ const AdminRegister = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <div style={{ maxWidth: 400, margin: "50px auto" }}>
-      <h2>Admin Register</h2>
-      <form onSubmit={handleSubmit}>
-        <input name="name" placeholder="Name" value={form.name} onChange={handleChange} required /><br /><br />
-        <input name="email" type="email" placeholder="Email" value={form.email} onChange={handleChange} required /><br /><br />
-        <input name="password" type="password" placeholder="Password" value={form.password} onChange={handleChange} required /><br /><br />
-        <button type="submit">Register</button>
-      </form>
-      <p className="login-link">
-        Already have an account?{" "}
-        <Link to="/admin/login">Login here</Link>
-      </p>
-=======
     <div className="admin-login-container">
       <div className="admin-login-card">
         <div className="admin-badge">🔐 ADMIN ACCESS</div>
@@ -72,7 +58,6 @@ const AdminRegister = () => {
           <Link to="/admin/login">Login here</Link>
         </p>
       </div>
->>>>>>> 1ee73bc (Updated code)
     </div>
   );
 };
