@@ -1,6 +1,6 @@
 // AdminLogin.jsx
 import React, { useState } from "react";
-import {useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import "./AdminLogin.css";
@@ -148,7 +148,11 @@ const AdminLogin = () => {
             </span>
           </button>
         </form>
-
+{/* Register Link */}
+        <p className="admin-register-link">
+          Don't have an admin account?{" "}
+          <Link to="/admin/register">Register here</Link>
+        </p>
         
 
 
