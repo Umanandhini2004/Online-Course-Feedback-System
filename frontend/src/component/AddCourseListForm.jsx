@@ -60,22 +60,22 @@ const AddCourseListForm = () => {
   };
 
 const renderTable = (courses) => (
-  <table className="w-full border border-gray-500 shadow-sm rounded-lg overflow-hidden text-white">
-    <thead className="bg-blue-800">
+  <table className="w-full border border-gray-200 shadow-sm rounded-lg overflow-hidden text-gray-700">
+    <thead className="bg-blue-100 text-blue-900">
       <tr>
-        <th className="border border-gray-600 px-4 py-2">Program</th>
-        <th className="border border-gray-600 px-4 py-2">Dept</th>
-        <th className="border border-gray-600 px-4 py-2">Year</th>
-        <th className="border border-gray-600 px-4 py-2">Sem</th>
-        <th className="border border-gray-600 px-4 py-2">Course Code</th>
-        <th className="border border-gray-600 px-4 py-2">Course Name</th>
-        <th className="border border-gray-600 px-4 py-2">Course Type</th>
-        <th className="border border-gray-600 px-4 py-2">Faculty</th>
+        <th className="border border-gray-200 px-4 py-2">Program</th>
+        <th className="border border-gray-200 px-4 py-2">Dept</th>
+        <th className="border border-gray-200 px-4 py-2">Year</th>
+        <th className="border border-gray-200 px-4 py-2">Sem</th>
+        <th className="border border-gray-200 px-4 py-2">Course Code</th>
+        <th className="border border-gray-200 px-4 py-2">Course Name</th>
+        <th className="border border-gray-200 px-4 py-2">Course Type</th>
+        <th className="border border-gray-200 px-4 py-2">Faculty</th>
       </tr>
     </thead>
-    <tbody className="bg-blue-700">
+    <tbody className="bg-white">
       {courses.map((course, i) => (
-        <tr key={i} className="hover:bg-blue-600">
+        <tr key={i} className="hover:bg-blue-50">
           <td className="border border-gray-600 px-4 py-2">{course.program}</td>
           <td className="border border-gray-600 px-4 py-2">{course.dept}</td>
           <td className="border border-gray-600 px-4 py-2">{course.year}</td>
@@ -92,7 +92,7 @@ const renderTable = (courses) => (
 
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+    <div className="bg-blue-50 rounded-lg shadow-md p-6 mb-8 border border-blue-100">
       <form onSubmit={handleCourseFileUpload} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Course CSV File</label>
@@ -125,28 +125,28 @@ const renderTable = (courses) => (
       </form>
        {/* Modal for results */}
 {showModal && (
-  <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-80 z-50">
-    <div className="bg-blue-900 text-white rounded-lg shadow-2xl p-8 max-w-6xl w-[90%] overflow-x-auto">
+  <div className="fixed inset-0 flex items-center justify-center bg-slate-900 bg-opacity-30 z-50">
+    <div className="bg-blue-50 text-gray-700 rounded-lg shadow-2xl p-8 max-w-6xl w-[90%] overflow-x-auto">
       {/* Title */}
-      <h3 className="text-2xl font-semibold mb-6 text-white text-center">Upload Results</h3>
+      <h3 className="text-2xl font-semibold mb-6 text-blue-900 text-center">Upload Results</h3>
 
       {/* Existing Courses */}
       <div className="mb-6">
-        <h4 className="text-md font-medium mb-2 text-white">Already Existing Courses:</h4>
+        <h4 className="text-md font-medium mb-2 text-gray-700">Already Existing Courses:</h4>
         {existingCourses.length > 0 ? (
           renderTable(existingCourses)
         ) : (
-          <p className="text-white">No duplicates found.</p>
+          <p className="text-gray-500">No duplicates found.</p>
         )}
       </div>
 
       {/* Newly Added Courses */}
       <div className="mb-6">
-        <h4 className="text-md font-medium mb-2 text-white">Newly Added Courses:</h4>
+        <h4 className="text-md font-medium mb-2 text-gray-700">Newly Added Courses:</h4>
         {addedCourses.length > 0 ? (
           renderTable(addedCourses)
         ) : (
-          <p className="text-white">No new courses added.</p>
+          <p className="text-gray-500">No new courses added.</p>
         )}
       </div>
 

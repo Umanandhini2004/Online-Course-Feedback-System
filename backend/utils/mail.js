@@ -32,15 +32,7 @@ const createTransporter = async () => {
   return transporter;
 };
 
-/**
- * sendFeedbackReceivedMail
- * options:
- *   - studentEmail (required)
- *   - studentName (optional)
- *   - courseName (optional)
- *   - facultyName (optional)
- *   - adminFromEmail (optional) - if omitted we fallback to MAIL_USER or Admin from DB
- */
+
 const sendFeedbackReceivedMail = async ({
   studentEmail,
   studentName,

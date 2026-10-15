@@ -35,8 +35,7 @@ const AdminDashboard = () => {
   // Fetch all courses
   const fetchCourses = async () => {
     try {
-      const res = await axios.get("https://online-course-feedback-system-hr9d.vercel.app/api/courses");
-
+      const res = await axios.get("http://localhost:5000/api/courses");
       setCourses(res.data);
     } catch (err) {
       console.error(err);
@@ -78,12 +77,10 @@ const AdminDashboard = () => {
     e.preventDefault();
     try {
       if (editId) {
-       await axios.put(`https://online-course-feedback-system-hr9d.vercel.app/api/courses/${editId}`, form);
-
+        await axios.put(`http://localhost:5000/api/courses/${editId}`, form);
         Swal.fire("Updated!", "Course updated successfully", "success");
       } else {
-        await axios.post("https://online-course-feedback-system-hr9d.vercel.app/api/courses", form);
-
+        await axios.post("http://localhost:5000/api/courses", form);
         Swal.fire("Added!", "Course added successfully", "success");
       }
       resetForm();
@@ -113,7 +110,7 @@ const AdminDashboard = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://online-course-feedback-system-hr9d.vercel.app/api/courses/${id}`);
+      await axios.delete(`http://localhost:5000/api/courses/${id}`);
       Swal.fire("Deleted!", "Course removed", "success");
       fetchCourses();
     } catch (err) {

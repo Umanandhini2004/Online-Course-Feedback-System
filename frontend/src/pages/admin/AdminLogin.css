@@ -6,7 +6,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(129, 140, 248, 0.3), transparent 30%),
+    radial-gradient(circle at 88% 82%, rgba(56, 189, 248, 0.24), transparent 32%),
+    linear-gradient(135deg, #dbeafe 0%, #eef2ff 52%, #e0e7ff 100%);
   padding: 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   position: relative;
@@ -22,14 +25,14 @@
   right: 0;
   bottom: 0;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(30, 58, 138, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 58, 138, 0.06) 1px, transparent 1px);
   background-size: 50px 50px;
   pointer-events: none;
 }
 
 .admin-login-card {
-  background-color: white;
+  background-color: #f7faff;
   border-radius: 20px;
   padding: 40px;
   max-width: 450px;
@@ -374,4 +377,25 @@
     top: -12px;
     right: 20px;
   }
+}
+
+/* Refined visual treatment */
+.admin-login-card {
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 24px 70px rgba(30, 64, 175, 0.16);
+}
+
+.admin-login-title,
+.admin-login-subtitle,
+.admin-register-link,
+.security-notice {
+  position: relative;
+}
+
+.admin-input-field {
+  border-color: #dbe3f0;
+}
+
+.admin-input-field::placeholder {
+  color: #94a3b8;
 }

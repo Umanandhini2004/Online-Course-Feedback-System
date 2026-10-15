@@ -212,3 +212,17 @@
 .register-link a:hover::after {
   width: 100%;
 }
+
+/* Refined visual treatment */
+.student-login-container {
+  background: linear-gradient(135deg, #dbeafe 0%, #f8fafc 52%, #e0e7ff 100%);
+}
+
+.login-card {
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 24px 70px rgba(30, 64, 175, 0.16);
+}
+
+.input-field::placeholder {
+  color: #94a3b8;
+}

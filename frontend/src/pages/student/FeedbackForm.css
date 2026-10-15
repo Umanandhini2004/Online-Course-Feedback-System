@@ -1,9 +1,18 @@
 /* FeedbackForm.css */
 
+.feedback-form-container {
+  background: linear-gradient(135deg, #dbeafe 0%, #f8fafc 52%, #e0e7ff 100%);
+}
+
+.feedback-content {
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 24px 70px rgba(30, 64, 175, 0.15);
+}
+
 /* Container & Layout */
 .feedback-form-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #96c3ea 0%, #96c3ea 100%);
+  background: linear-gradient(135deg, #dbeafe 0%, #f8fafc 52%, #e0e7ff 100%);
   padding: 2rem 1rem;
   display: flex;
   justify-content: center;
@@ -13,7 +22,7 @@
 .feedback-content {
   background: white;
   border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 24px 70px rgba(30, 64, 175, 0.15);
   padding: 2.5rem;
   max-width: 800px;
   width: 100%;

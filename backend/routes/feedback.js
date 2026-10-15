@@ -71,7 +71,7 @@ router.post("/feedback", async (req, res) => {
   }
 });
 
-// ✅ Get feedback analysis by course + optional faculty
+//  Get feedback analysis by course + optional faculty
 router.get("/feedback/analysis/:courseId", async (req, res) => {
   try {
     const { faculty } = req.query;

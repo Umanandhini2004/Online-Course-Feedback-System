@@ -2,7 +2,7 @@
 
 .feedback-analysis-container {
   padding: 1.5rem;
-  background-color: #0c316c;
+  background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 55%, #eef2ff 100%);
   min-height: 100vh;
 }
 
@@ -11,7 +11,7 @@
   font-weight: 600;
   text-align: center;
   margin-bottom: 1.5rem;
-  color: white;
+  color: #1e3a8a;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +20,7 @@
 
 .feedback-info {
   text-align: center;
-  color: white;
+  color: #475569;
   margin-bottom: 0.5rem;
 }
 
@@ -30,7 +30,7 @@
 
 .feedback-total {
   text-align: center;
-  color: white;
+  color: #475569;
   margin-bottom: 1.5rem;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .chart-card {
-  background-color: white;
+  background-color: #f7faff;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   border-radius: 0.75rem;
   padding: 1rem;

@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const FeedbackQuestion = require("../models/FeedbackQuestion");
 
-// ✅ Add Question
+//  Add Question
 router.post("/questions", async (req, res) => {
   try {
     const { courseType, question } = req.body;
@@ -15,7 +15,7 @@ router.post("/questions", async (req, res) => {
   }
 });
 
-// ✅ Get Questions by Course Type
+//  Get Questions by Course Type
 router.get("/questions/:courseType", async (req, res) => {
   try {
     const questions = await FeedbackQuestion.find({ courseType: req.params.courseType });
@@ -25,7 +25,7 @@ router.get("/questions/:courseType", async (req, res) => {
   }
 });
 
-// ✅ Update Question
+// Update Question
 router.put("/questions/:id", async (req, res) => {
   try {
     const updated = await FeedbackQuestion.findByIdAndUpdate(
@@ -39,7 +39,7 @@ router.put("/questions/:id", async (req, res) => {
   }
 });
 
-// ✅ Delete Question
+// Delete Question
 router.delete("/questions/:id", async (req, res) => {
   try {
     await FeedbackQuestion.findByIdAndDelete(req.params.id);

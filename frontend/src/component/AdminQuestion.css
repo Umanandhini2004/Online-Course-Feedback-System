@@ -50,7 +50,7 @@
 
 /* Question Form */
 .question-form {
-  background-color: #f8f9fa;
+  background-color: #eef5ff;
   padding: 25px;
   border-radius: 10px;
   margin-bottom: 30px;
@@ -128,7 +128,7 @@
 }
 
 .question-item {
-  background-color: white;
+  background-color: #f8fbff;
   padding: 15px 20px;
   margin-bottom: 12px;
   border-radius: 8px;

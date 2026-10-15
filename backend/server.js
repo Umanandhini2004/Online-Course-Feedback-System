@@ -2,10 +2,22 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
+<<<<<<< HEAD
 const serverless = require("serverless-http");
+=======
+const dns = require("node:dns");
+>>>>>>> 1ee73bc (Updated code)
 
 dotenv.config();
 const app = express();
+
+// Atlas uses an SRV record. Prefer configured DNS servers when the local
+// resolver cannot resolve MongoDB SRV records.
+const dnsServers = (process.env.DNS_SERVERS || "8.8.8.8,1.1.1.1")
+  .split(",")
+  .map((server) => server.trim())
+  .filter(Boolean);
+dns.setServers(dnsServers);
 
 app.use(express.json());
 app.use(cors());
@@ -36,6 +48,12 @@ app.get("/", (req, res) => {
   res.send("Backend is running successfully on Vercel 🚀");
 });
 
+<<<<<<< HEAD
 // Export for Vercel
 module.exports = app;
 module.exports.handler = serverless(app);
+=======
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+>>>>>>> 1ee73bc (Updated code)

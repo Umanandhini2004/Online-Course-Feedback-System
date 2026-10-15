@@ -7,7 +7,7 @@ const { Readable } = require("stream");
 
 const upload = multer(); // store in memory
 
-// ✅ Helper to parse CSV buffer
+//  Helper to parse CSV buffer
 function parseCsvFile(buffer) {
   return new Promise((resolve, reject) => {
     const results = [];
@@ -20,7 +20,7 @@ function parseCsvFile(buffer) {
   });
 }
 
-// ✅ Bulk Course Upload
+//  Bulk Course Upload
 router.post("/upload-coursebatch", upload.single("csvFile"), async (req, res) => {
   const success = [];
   const error = [];

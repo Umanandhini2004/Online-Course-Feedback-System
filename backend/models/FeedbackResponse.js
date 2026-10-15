@@ -5,7 +5,7 @@ const feedbackResponseSchema = new mongoose.Schema({
   courseId: { type: mongoose.Schema.Types.ObjectId, ref: "Course", required: true },
   courseName: { type: String, required: true },
   courseType: { type: String, enum: ["theory", "practical", "integrated"], required: true },
-  facultyName: { type: String, required: true }, // ✅ New field
+  facultyName: { type: String, required: true }, //  New field
   responses: [
     {
       questionId: { type: mongoose.Schema.Types.ObjectId, ref: "FeedbackQuestion" },

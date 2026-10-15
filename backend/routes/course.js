@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Course = require("../models/Course");
 
-// ✅ Add Course
+//  Add Course
 router.post("/courses", async (req, res) => {
   try {
     const newCourse = new Course(req.body);
@@ -13,7 +13,7 @@ router.post("/courses", async (req, res) => {
   }
 });
 
-// ✅ Get All Courses with optional filters
+//  Get All Courses with optional filters
 router.get("/courses", async (req, res) => {
   try {
     const { program, dept, year, sem, courseType } = req.query;
@@ -31,7 +31,7 @@ router.get("/courses", async (req, res) => {
   }
 });
 
-// ✅ Update Course
+//  Update Course
 router.put("/courses/:id", async (req, res) => {
   try {
     const updatedCourse = await Course.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -41,7 +41,7 @@ router.put("/courses/:id", async (req, res) => {
   }
 });
 
-// ✅ Delete Course
+//  Delete Course
 router.delete("/courses/:id", async (req, res) => {
   try {
     await Course.findByIdAndDelete(req.params.id);
@@ -51,7 +51,7 @@ router.delete("/courses/:id", async (req, res) => {
   }
 });
 
-// ✅ Get faculties for a specific course (for frontend dropdown)
+//  Get faculties for a specific course (for frontend dropdown)
 router.get("/courses/:courseId/faculties", async (req, res) => {
   try {
     const course = await Course.findById(req.params.courseId);

@@ -2,17 +2,17 @@
 
 .container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #312e81 0%, #312e81 100%);
+  background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 55%, #eef2ff 100%);
   padding: 40px 20px;
 }
 
 .title {
   text-align: center;
-  color: white;
+  color: #1e3a8a;
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 30px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 2px rgba(30, 58, 138, 0.12);
   letter-spacing: 0.5px;
 }
 
@@ -45,7 +45,7 @@
 
 /* Wrapper for AdminQuestions component */
 .container > div:last-child {
-  background-color: white;
+  background-color: #f7faff;
   border-radius: 15px;
   padding: 30px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);

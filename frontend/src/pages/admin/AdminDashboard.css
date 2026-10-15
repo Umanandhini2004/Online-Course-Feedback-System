@@ -1,11 +1,13 @@
 /* AdminDashboard.css */
 
 .admin-dashboard {
-  max-width: 1400px;
+  width: 100%;
+  max-width: none;
   margin: 0 auto;
   padding: 20px;
+  box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #312e81;
+  background-color: #eef4ff;
   min-height: 100vh;
 }
 
@@ -14,7 +16,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
   padding: 20px 30px;
   border-radius: 12px;
   margin-bottom: 30px;
@@ -22,7 +24,7 @@
 }
 
 .admin-header h2 {
-  color: white;
+  color: #1e3a8a;
   margin: 0;
   font-size: 28px;
   font-weight: 600;
@@ -31,6 +33,8 @@
 .header-buttons {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .header-buttons button {
@@ -42,6 +46,19 @@
   font-weight: 500;
   transition: all 0.3s ease;
   color: white;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .admin-header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .header-buttons {
+    justify-content: flex-start;
+  }
 }
 
 .manage-questions-btn {
@@ -289,10 +306,10 @@ input[type="file"]::-webkit-file-upload-button:hover {
 
 /* Table Section */
 .admin-dashboard h3 {
-  color: white;
+  color: #1e3a8a;
   margin-bottom: 15px;
   font-size: 20px;
-  background-color: #3730a3;
+  background-color: #dbeafe;
   padding: 12px 20px;
   border-radius: 8px;
   display: inline-block;
@@ -496,4 +513,22 @@ tbody td {
   .filter-row {
     grid-template-columns: 1fr;
   }
+}
+
+/* Keep dashboard content softly tinted instead of pure white. */
+.filter-container,
+.admin-dashboard form,
+.table-container,
+#upload-course-section {
+  background-color: #f7faff;
+  border-color: #dbeafe;
+}
+
+/* Light blue surface palette */
+.filter-container,
+.admin-dashboard form,
+.table-container,
+#upload-course-section {
+  background-color: #f7faff;
+  border: 1px solid #dbeafe;
 }
