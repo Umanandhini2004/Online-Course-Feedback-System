@@ -6,6 +6,12 @@ import AddCourseListForm from '../../component/AddCourseListForm';
 
 import "./AdminDashboard.css";
 
+const API_BASE_URL =
+  process.env.REACT_APP_API_URL ||
+  (window.location.hostname === "localhost"
+    ? "http://localhost:5000/api"
+    : "https://online-course-feedback-system-hr9d.vercel.app/api");
+
 const AdminDashboard = () => {
   const navigate = useNavigate();
 
@@ -35,7 +41,7 @@ const AdminDashboard = () => {
   // Fetch all courses
   const fetchCourses = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/courses");
+      const res = await axios.get(`${API_BASE_URL}/courses`);
       setCourses(res.data);
     } catch (err) {
       console.error(err);
@@ -77,10 +83,10 @@ const AdminDashboard = () => {
     e.preventDefault();
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/courses/${editId}`, form);
+        await axios.put(`${API_BASE_URL}/courses/${editId}`, form);
         Swal.fire("Updated!", "Course updated successfully", "success");
       } else {
-        await axios.post("http://localhost:5000/api/courses", form);
+        await axios.post(`${API_BASE_URL}/courses`, form);
         Swal.fire("Added!", "Course added successfully", "success");
       }
       resetForm();
@@ -110,7 +116,7 @@ const AdminDashboard = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/courses/${id}`);
+      await axios.delete(`${API_BASE_URL}/courses/${id}`);
       Swal.fire("Deleted!", "Course removed", "success");
       fetchCourses();
     } catch (err) {
@@ -394,7 +400,7 @@ const AdminDashboard = () => {
       {/* AddCourseListForm */}
       <div id="upload-course-section" className="bg-white rounded-lg shadow-md p-6 mb-8">
   <h2 className="text-xl font-semibold mb-4">📘 Upload Course List</h2>
-  <AddCourseListForm />
+  <AddCourseListForm onUploadComplete={fetchCourses} />
 </div>
 
     </div>

@@ -1,10 +1,17 @@
 import React, { useState, useRef } from "react";
 import { toast } from "react-toastify";
 import { UploadCloud } from "lucide-react";
+import * as XLSX from "xlsx";
 import "../pages/admin/AdminDashboard.css";
 
 
-const AddCourseListForm = () => {
+const API_BASE_URL =
+  process.env.REACT_APP_API_URL ||
+  (window.location.hostname === "localhost"
+    ? "http://localhost:5000/api"
+    : "https://online-course-feedback-system-hr9d.vercel.app/api");
+
+const AddCourseListForm = ({ onUploadComplete }) => {
   const [courseFile, setCourseFile] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [addedCourses, setAddedCourses] = useState([]);
@@ -15,8 +22,17 @@ const AddCourseListForm = () => {
   const handleCourseFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile) {
-      if (selectedFile.type !== "text/csv") {
-        toast.error("Only CSV files are allowed");
+      const isSupportedFile =
+        selectedFile.name.toLowerCase().endsWith(".csv") ||
+        selectedFile.name.toLowerCase().endsWith(".xlsx") ||
+        selectedFile.name.toLowerCase().endsWith(".xls") ||
+        selectedFile.type === "text/csv" ||
+        selectedFile.type === "application/vnd.ms-excel" ||
+        selectedFile.type ===
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
+      if (!isSupportedFile) {
+        toast.error("Please upload a CSV or Excel file");
         return;
       }
       setCourseFile(selectedFile);
@@ -32,11 +48,31 @@ const AddCourseListForm = () => {
       return;
     }
 
-    const formData = new FormData();
-    formData.append("csvFile", courseFile);
-
     try {
-      const response = await fetch("https://online-course-feedback-system-hr9d.vercel.app/api/upload-coursebatch", {
+      let uploadFile = courseFile;
+      const fileName = courseFile.name.toLowerCase();
+
+      if (fileName.endsWith(".xlsx") || fileName.endsWith(".xls")) {
+        const workbook = XLSX.read(await courseFile.arrayBuffer(), {
+          type: "array",
+        });
+        const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+
+        if (!firstSheet) {
+          throw new Error("The Excel workbook does not contain a worksheet");
+        }
+
+        uploadFile = new File(
+          [XLSX.utils.sheet_to_csv(firstSheet)],
+          `${courseFile.name.replace(/\.(xlsx|xls)$/i, "")}.csv`,
+          { type: "text/csv" }
+        );
+      }
+
+      const formData = new FormData();
+      formData.append("csvFile", uploadFile);
+
+      const response = await fetch(`${API_BASE_URL}/upload-coursebatch`, {
 
         method: "POST",
         body: formData,
@@ -51,6 +87,7 @@ const AddCourseListForm = () => {
       setAddedCourses(data.success || []);
       setExistingCourses(data.error || []);
       setShowModal(true);
+      onUploadComplete?.();
 
       setCourseFile(null);
       if (courseFileInputRef.current) courseFileInputRef.current.value = "";
@@ -105,12 +142,12 @@ const renderTable = (courses) => (
               <p className="mb-1 text-sm text-gray-500">
                 {courseFile ? courseFile.name : "Click to upload or drag and drop"}
               </p>
-              <p className="text-xs text-gray-500">CSV only (MAX. 10MB)</p>
+              <p className="text-xs text-gray-500">CSV, XLS, or XLSX (MAX. 10MB)</p>
             </div>
             <input
               ref={courseFileInputRef}
               type="file"
-              accept=".csv"
+              accept=".csv,.xls,.xlsx"
               className="hidden"
               onChange={handleCourseFileChange}
             />
